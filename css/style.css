@@ -1,0 +1,638 @@
+:root {
+    --navbar-bg-color: hsl(0, 0%, 15%);
+    --navbar-text-color: hsl(0, 0%, 85%);
+    --navbar-text-color-focus: white;
+    --navbar-bg-contrast: hsl(0, 0%, 25%);
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "poppins", sans-serif;
+  }
+  body {
+    text-decoration: none;
+    height: 100vh;
+    font-family: "poppins", sans-serif;
+    line-height: 1.6;
+    background-color: #d6eef5;
+  }
+
+  
+/*---------------------------- preloader area  start----------------------------*/
+
+.loader_bg {
+  position: fixed;
+  z-index: 9999999;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader img {
+  width: 280px;
+}
+
+/*---------------------------- preloader area end  ----------------------------*/
+
+  /*--------------------------- header section  start------------------------------*/
+  .container {
+    max-width: 1000px;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #navbar {
+    --navbar-height: 64px;
+    /* position: fixed; */
+    height: var(--navbar-height);
+    background-color: #d6eef5;
+    left: 0;
+    right: 0;
+    
+  }
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+  }
+  .navbar-item {
+    margin: 0.4em;
+    width: 100%;
+  }
+  .home-link {
+    color: #083346;
+    text-decoration: none;
+    display: flex;
+    font-size: larger;
+    font-weight: 900;
+    align-items: center;
+  }
+
+  .navbar-link {
+    color: #017fb5;
+    text-decoration: none;
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+  }
+  
+  
+  .navbar-link {
+    justify-content: center;
+    width: 100%;
+    padding: 0.4em 0.8em;
+    border-radius: 5px;
+  }
+  
+  .navbar-item:hover{
+    text-decoration: none;
+  }
+
+  .navbar-link:is(:focus, :hover) {
+    color: #017fb5;
+    background-color: #fff;
+    border-radius: 50px;
+  }
+  #navbar-toggle {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    left: 110px;
+  }
+  .icon-bar {
+    display: block;
+    width: 25px;
+    height: 4px;
+    margin: 2px;
+    background-color: var(--navbar-text-color);
+  }
+  #navbar-toggle:is(:focus, :hover) .icon-bar {
+    background-color: var(--navbar-text-color-focus);
+  }
+  #navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
+    position: absolute;
+    margin: 0;
+    width: 30px;
+  }
+  #navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
+    transform: rotate(45deg);
+  }
+  #navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+    opacity: 0;
+  }
+  #navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
+    transform: rotate(-45deg);
+  }
+  #navbar-menu {
+    /* position: fixed; */
+    top: var(--navbar-height);
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    left: 0;
+    right: 0;
+  }
+  #navbar-toggle[aria-expanded="true"] + #navbar-menu {
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    visibility: visible;
+  }
+  .navbar-links {
+    list-style: none;
+    position: absolute;
+    background-color: #d6eef5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: 1.4rem;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+  
+  #navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-links {
+    padding: 1em;
+  }
+  @media screen and (min-width: 700px) {
+    #navbar-toggle,
+    #navbar-toggle[aria-expanded="true"] {
+      display: none;
+    }
+  
+    #navbar-menu,
+    #navbar-toggle[aria-expanded="true"] #navbar-menu {
+      visibility: visible;
+      opacity: 1;
+      position: static;
+      display: block;
+      height: 100%;
+    }
+  
+    .navbar-links,
+    #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      position: static;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /*--------------------------- header section end-------------------------------  */
+
+  /*--------------------------- info section start -------------------------------------*/
+.main .heading{
+	position: absolute;
+	height:auto;
+	width:100%;
+	top:50%;
+    /* z-index: -10; */
+	transform: translateY(-50%);
+	text-align: center;
+	text-shadow:0px 0.5px 5px rgba(0, 0, 0, 0.2);
+}
+.main .heading .head{
+	position: relative;
+  top: -45px;
+	font-family: "poppins", sans-serif;
+	font-size:40px;
+	font-weight: 600; 
+	color:#083346;
+}
+.text{
+  color: #083346;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+.main .heading .head span{
+	color:#ffff;
+}
+.main .heading  .sub{
+	position: relative;
+    top: -35px;
+    padding-top: 20px;
+    font-family: "poppins", sans-serif;
+	font-size:22px;
+	font-weight: 300; 
+	color:#046c95;
+	margin:-2% 0 2% 0;
+}
+.main .heading .btns{
+	height:auto;
+	width:100%;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+    top: -50px;
+}
+.main .heading .btns a{
+	color:#fff;
+	text-align: center;
+	text-decoration: none;
+	font-family: "poppins", sans-serif;
+	font-size:20px;
+	font-weight:700;
+	display:block;
+	border:1px solid rgba(255, 255, 255, 0.5);
+	height:auto;
+	width:250px;
+	padding: 10px;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	margin-left:1%;
+	border-radius: 10px;
+	transition: 0.5s ease-in-out;
+}
+
+.main .heading .btns .btn1{
+  margin: 25px;
+	background:#22ccfd;
+	border:1px solid #22ccfd;
+}
+img{
+    position: absolute;
+   top: 375px;
+   border-radius: 50%;
+}
+.mimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  /*------------------------- info section  end --------------------------*/
+
+
+  /* -----------------------------my skills section start---------------- */
+.my-skills{
+  position: relative;
+  top: 100%;
+  padding-bottom: 50px;
+}
+.skills {
+  color: #007ea3;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 70px);
+  margin: 20px;
+}
+.skl{
+   margin-left: 10px;
+   color: #083346;
+   font-weight: 700;
+   font-size: large;
+}
+.sklLine{
+  position: relative;
+  bottom: 10px;
+  visibility: hidden;
+  padding-left: 10px;
+  color: #007ea3;
+}
+.centre{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #007ea3;
+}
+.ProgWidth {
+  padding: 0px 20px;
+}
+.skillDiv {
+  height: 15px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #fff;
+}
+.skillBar {
+  display: block;
+  height: 15px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, rgba(0,85,110,1) 7%, rgba(17,137,172,1) 34%, rgba(0,191,247,1) 75%);
+}
+.p {
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+  font-weight: 700;
+}
+
+.pdBar {
+  width: 100%;
+  animation: ProductDesign 3s 1s  forwards;
+}
+.wdBar {
+  width: 100%;
+  animation: WebDesign 3s 1s  forwards;
+}
+.ptBar {
+  width: 80%;
+  animation: Prototyping 3s 1s  forwards;
+}
+
+.dsBar {
+  width: 60%;
+  animation: DesignStrategy 3s 1s  forwards;
+}
+.urBar {
+  width: 30%;
+  animation: UserResearch 3s 1s forwards;
+}
+.udBar {
+  width: 100%;
+  animation: UIDesign 3s 1s  forwards;
+}
+.mdBar {
+  width: 100%;
+  animation: MobileDesign 3s 1s  forwards;
+}
+.codeBar {
+  width: 20%;
+  animation: Coding 3s 1s forwards;
+}
+
+@keyframes ProductDesign {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes WebDesign {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes Prototyping {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+@keyframes DesignStrategy {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 60%;
+  }
+}
+@keyframes UserResearch {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 30%;
+  }
+}
+@keyframes UIDesign {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes MobileDesign {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes Coding {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 624px) {
+  .skills {
+    color: #007ea3;
+    display: contents;
+    margin: 20px;
+  }
+  }
+
+  /*------------------------------ my skills section end -----------------------*/
+
+/*-------------------------------- my projects section start ------------------ */
+
+  .project-tittle{
+    margin-top: 200px;
+    margin-left: 20px;
+    text-transform: capitalize;
+    font-family: "poppins", sans-serif;
+    font-size: large;
+    font-weight: bolder;
+    color: #083346;
+    
+  }
+  .project-tittle .sub{
+    /* margin:  2px; */
+    /* padding: 20px; */
+    text-align: center;
+    color: #22ccfd;
+    font-weight: 700;
+    font-size:large ;
+    text-shadow: 2px 2px 4px #000;
+  }
+  .project-tittle .sub span{
+    color: #ffff;
+  }
+  .projects {
+    font-family: "poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .projects .container {
+    display: flex;
+    justify-content: center;
+    width: 90vw;
+    margin-top: -150px;
+  }
+  
+  .projects .panel {
+    box-shadow: 0 5px 1rem rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    border-radius: 30px;
+    color: #22ccfd;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.5s ease-in;
+  }
+  
+  .projects .panel h3 {
+    word-spacing: 10px;
+    color: #22ccfd;
+    font-weight: 900;
+    font-size: calc(24 / 16 * 1rem);
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+  }
+  
+  .projects .panel.active {
+    flex: 5;
+  }
+  
+  .projects .panel.active h3 {
+    opacity: 1;
+    transition: all 0.5s ease-in 0.4s;
+  }
+  
+  @media (max-width: 480px) {
+    .projects .container {
+      width: 100vw;
+    }
+  
+    .projects .panel:nth-of-type(4),
+    .projects .panel:nth-of-type(5) {
+      display: none;
+    }
+  }
+  
+/* ------------------------- my projects section end ---------------------*/
+
+
+/*------------------------- footer section start ----------------------------*/
+  .footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "poppins", sans-serif;
+    font-size: large;
+    margin: 50px;
+  }
+  .contact{
+    color: #083346;
+    text-transform: uppercase;
+  }
+  .footer .sub{
+    color: #3784a5;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: xx-large;
+    font-weight: bold;
+  }
+  
+  .footer .sub .sub-sub{
+    font-size: small;
+    color: #0196c1;
+    word-spacing: 2px;
+  }
+  
+  .footer .sub .sub-sub span{
+    color: #083346;
+  }
+  
+  
+  
+  .social-menu ul{
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    padding: 0;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    display: flex;
+  }
+  
+  .social-menu ul li{
+    list-style: none;
+    margin: 0 15px;
+  }
+  
+  .social-menu ul li .fab{
+    font-size: 20px;
+    line-height: 60px;
+    transition: .3s;
+    color: #000;
+  }
+  
+  .social-menu ul li .fab:hover{
+    color: #fff;
+  }
+  
+  .social-menu ul li a{
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    transition: .6s;
+    box-shadow: 0 5px 4px rgba(0,0,0,.5);
+  }
+  
+  .social-menu ul li a:hover{
+    transform: translate(0, -10%);
+  }
+  
+  .social-menu ul li:nth-child(1) a:hover{
+    background-color: rgba(0, 0, 0, 0.829);
+  }
+  .social-menu ul li:nth-child(2) a:hover{
+    background-color: #E4405F;
+  }
+  .social-menu ul li:nth-child(3) a:hover{
+    background-color: #0077b5;
+  }
+  .social-menu ul li:nth-child(4) a:hover{
+    background-color: rgb(60, 218, 12);
+  }
+
+  /*--------------------- footer section end ---------------------------------*/
